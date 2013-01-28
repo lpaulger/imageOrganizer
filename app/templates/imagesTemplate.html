@@ -1,0 +1,15 @@
+<ul>
+<% _.each(models, function(image){ %>
+  <li class="item">
+    <img src="<%= image.attributes.picture_url %>" alt="">
+    <label>Brand: </label>
+    <% if(image.attributes.brand){ %>
+      <span><%= image.attributes.brand %> - id: <%= image.attributes.brand_id %></span>
+    <% } %>
+    <label>Category: </label>
+    <% if(image.attributes.category){ %>
+      <span><%= image.attributes.category %> - id: <%= image.attributes.category_id %></span>
+    <% } %>
+  </li>
+<% }); %>
+</ul>

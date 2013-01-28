@@ -1,0 +1,12 @@
+<a href="#close" title="Close" class="close">X</a>
+<h2>Edit Image(s) <i><%= active.length %></i></h2>
+<form>
+  <% _.each(errors, function(error){ %>
+    <div class="alert alert-error"><%= error %></div>
+  <% }); %>
+  <label for="brand">Brand: </label>
+  <input name="brand" type="text" value="<%= brand %>" placeholder="Enter Brand Name">
+  <label for="category">Category: </label>
+  <input name="category" type="text" value="<%= category %>" placeholder="Enter Category Name">
+  <a href="#done" class="btn btn-primary">Make Changes</a>
+</form>

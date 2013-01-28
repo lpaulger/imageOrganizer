@@ -1,0 +1,20 @@
+//normalize
+@import "h5bp";
+
+//theme
+@import "bootstrap.min";
+
+//layout
+@import "respond";
+@import "susy";
+
+$total-columns  : 10;             // a 12-column grid
+$column-width   : 4em;            // each column is 4em wide
+$gutter-width   : 1em;            // 1em gutters between columns
+$grid-padding   : $gutter-width;  // grid-padding equal to gutters
+
+$background : #2f2f2f;
+$active: #5bb75b;
+$unavailable: #FF0000;
+
+@import "compass/css3/border-radius";

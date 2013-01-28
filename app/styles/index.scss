@@ -1,0 +1,286 @@
+@import "config";
+
+a:visited {
+  color: white;
+}
+
+header {
+  .hero-unit {
+    @include border-radius(0px);
+    margin:0;
+  }
+}
+
+[role="navigation"] {
+  background-color: #eeeeee;
+  border-top: 1px solid darken(#eeeeee, 30%);
+  border-bottom: 1px solid darken(#eeeeee, 30%);
+  width: 100%;
+
+  .fixed & {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 500;
+  }
+
+  a {
+    margin: 15px auto;
+    width: 80%;
+    display: block;
+  }
+}
+
+#errorContainer {
+  display: none;
+  width: 70%;
+  margin: 5px auto;
+}
+
+#main {
+  width: 240px;
+  margin: 0 auto;
+
+  footer {
+    clear: both;
+  }
+}
+
+label {
+  font-weight: bold;
+}
+
+.page {
+    background-color: lighten($background, 50%);
+  }
+
+#images {
+  margin: 0 auto;
+  width: 100%;
+}
+
+ul {
+  margin: 0;
+  li {
+    list-style: none;
+    float: left;
+    padding: 5px;
+    margin: 5px;
+    display: block;
+    background-color: white;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      float: left;
+      clear: left;
+      overflow: ellipsis;
+    }
+
+    span {
+      float: left;
+      overflow: ellipsis;
+    }
+
+    &.active {
+      background-color: $active;
+    }
+
+    &.assigned {
+      background-color: $unavailable;
+    }
+
+    img {
+      height: 220px;
+      width: 220px;
+      cursor: pointer;
+      clear: both;
+      float: left;
+    }
+  }
+}
+
+#edit {
+  form {
+    margin:0;
+  }
+  .btn {
+    display: block;
+  }
+}
+
+footer[role="contentinfo"] {
+  clear: both;
+  background-color: #eee;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+
+
+/**
+ * Modal dialog
+ */
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+.modalDialog:target {
+  opacity:1;
+  pointer-events: auto;
+}
+
+.modalDialog > div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  background: white;
+}
+
+.close {
+  opacity: 1;
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { opacity: 1;background: lighten($active, 15%); }
+
+/**
+ * Responsive styles
+ */
+
+@include respond-to('mobile'){
+  .hero-unit h1 {
+    margin-bottom: 0;
+    font-size: 1.5em;
+    line-height: 1;
+    color: inherit;
+    letter-spacing: -1px;
+  }
+
+  label, span {
+    font-size: .8em;
+    margin: 0;
+    padding: 0;
+  }
+
+  [role="navigation"] a{
+    margin: 2px auto;
+  }
+
+  .modalDialog {
+    width: 100%;
+    position: relative;
+    background: none;
+    &:target{
+      opacity: 1;
+      pointer-events: auto;
+      float: left;
+      clear: both;
+      position: relative;
+    }
+
+    #modalContent {
+      width: 100%;
+      float: left;
+      padding: 5px;
+    }
+  }
+
+  #main {
+    width: 280px;
+  }
+
+  #images {
+    img {
+      height: 120px;
+      width: 120px;
+    }
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+}
+
+@include respond-to('tablet'){
+  #main {
+    width: 480px;
+    margin: 0 auto;
+  }
+
+  .page {
+    background-color: lighten($background, 40%);
+  }
+}
+
+@include respond-to('desktop'){
+  #main {
+    width: 720px;
+    margin: 0 auto;
+  }
+
+  .page {
+    background-color: lighten($background, 30%);
+  }
+}
+
+@include respond-to('desktop-l'){
+  #main {
+    width: 960px;
+    margin: 0 auto;
+  }
+
+  .page {
+    background-color: lighten($background, 20%);
+  }
+}
+
+@include respond-to('desktop-xl'){
+  #main {
+    width: 960px;
+    margin: 0 auto;
+  }
+
+  .page {
+    background-color: lighten($background, 10%);
+  }
+}
+
+@include respond-to('desktop-xxl'){
+  #main {
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page {
+    background-color: $background;
+  }
+}
